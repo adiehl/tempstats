@@ -5,6 +5,7 @@ const async = require('async');
 const sequelize = new Sequelize('tempstats', 'tempstats', 'tempstats', {
     host: 'localhost',
     dialect: 'mysql',
+    logging: false,
 
     pool: {
         max: 5,
