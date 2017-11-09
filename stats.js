@@ -57,11 +57,13 @@ async.each(sensors, function(sensor, callback) {
                 var temperature = weatherMatches[1];
                 var humidity = weatherMatches[2];
                 //console.log('sensor', temperature, humidity);
-                Temperature.build({
-                    sensor: mySensor.Results.Name,
+                var temperatureObj = {
+                    sensor: mySensor.Results[0].Name,
                     currentTemp: temperature,
                     humidity: humidity
-                }).save().then(function() {
+                };
+
+                Temperature.build(temperatureObj).save().then(function() {
                     callback();
                 }).catch(function (err) {
                     callback(err);
@@ -73,12 +75,13 @@ async.each(sensors, function(sensor, callback) {
                     var targetTemperature = heaterMatch[2];
                     var valve = heaterMatch[3];
                     //console.log('heater', temperature, targetTemperature, valve);
-                    Temperature.build({
-                        sensor: mySensor.Results.Name,
+                    var temperatureObj = {
+                        sensor: mySensor.Results [0].Name,
                         currentTemp: temperature,
-                        targetTemperature: targetTemperature,
+                        targetTemp: targetTemperature,
                         valve: valve
-                    }).save().then(function() {
+                    };
+                    Temperature.build(temperatureObj).save().then(function() {
                         callback();
                     }).catch(function (err) {
                         callback(err);
