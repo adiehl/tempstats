@@ -1,0 +1,10 @@
+{
+  "name": "tempstats",
+  "version": "0.1.0",
+  "devDependencies": {},
+  "dependencies": {
+    "async": "^2.6.0",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.22.5"
+  }
+}
